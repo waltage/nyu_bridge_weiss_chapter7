@@ -1,4 +1,4 @@
-#Quick Sort - partitioning
+# Quick Sort - partitioning
 
 
 [Proposed Partitioning Correction](chapter7/quicksort_717.cpp#L135)
