@@ -11,11 +11,21 @@ int main() {
      * std::vector<int> BAD{10, 1, 1, 4, 2, 2, 4, 7, 4, 4};
      */
 
+    /* The following runs 1000 random lists through the partitioning
+     * methods and evaluates the accuracy of whether the list is
+     * re-ordered correctly around the pivot.
+     *
+     * The book method looks like it's correct less than 50% of the time.
+     */
+
     int cases = 1000;
     int bad_cnt = 0;
     for (int i = 0; i < cases; ++i) {
         std::vector<int> test_case = generate_random_list(200, -50, 50);
-        int partition_val = book_partition(test_case, 0, test_case.size() - 1, false);
+        int partition_val = book_partition(test_case,
+                                           0,
+                                           test_case.size() - 1,
+                                           false);
         if (!check_partition(test_case, partition_val, false)) {
             ++bad_cnt;
         }
@@ -29,7 +39,9 @@ int main() {
     bad_cnt = 0;
     for (int i = 0; i < cases; ++i) {
         std::vector<int> test_case = generate_random_list(200, -50, 50);
-        int partition_val = corrected_partition(test_case, 0, test_case.size() - 1);
+        int partition_val = corrected_partition(test_case,
+                                                0,
+                                                test_case.size() - 1);
         if (!check_partition(test_case, partition_val)) {
             ++bad_cnt;
         }
@@ -37,7 +49,8 @@ int main() {
 
     print(std::endl);
     println("Corrected method:");
-    println(bad_cnt << " out of " << cases << " are not partitioned correctly");
+    println(bad_cnt << " out of " << cases
+            << " are not partitioned correctly");
 
 
     return 0;

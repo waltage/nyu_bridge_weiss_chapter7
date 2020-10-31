@@ -6,7 +6,7 @@
 Upon further review, it appears that the quicksort implementation in Weiss is incorrect.  
 1. Pick a partition value (pivot) - OK
 2. Partition the list around the pivot - BROKEN
-3. Recurse on new pivots - Depends on #2, so BROKEN
+3. Recurse on new pivots - Depends on #2
 
 
 ## Figure 7.16 [OK]
