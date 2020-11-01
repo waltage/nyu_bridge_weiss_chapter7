@@ -141,8 +141,10 @@ int corrected_partition(std::vector<T>& a, int left, int right, bool debug) {
 
     int pvt_ret = pivot;
 
-    // Weiss suggests these index shifts in figure 7.18.
-    // This saves us some comparisons, but are not necessary
+    // Contrary to 7.18, we must start with i = left in case our
+    // left-most item == pivot value;
+    // Additionally, we do not need to move right - 2 if we use
+    // a non-reference for the pivot value.
     int i = left;
     int j = right - 2;
 
